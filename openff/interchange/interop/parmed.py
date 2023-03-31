@@ -216,7 +216,7 @@ def _to_parmed(interchangetem: "Interchange") -> "pmd.Structure":
         atom_key = TopologyKey(atom_indices=(pmd_idx,))
         smirks = vdw_handler.key_map[atom_key]
         potential = vdw_handler.potentials[smirks]
-        element_symbol = atom.symbol
+        element_symbol = pmd_atom.element_name
         sigma, epsilon = _lj_params_from_potential(potential)
         sigma = sigma.m_as(unit.angstrom)
         epsilon = epsilon.m_as(kcal_mol)
